@@ -1,0 +1,4 @@
+export const INFURA_WALLET_PROVIDER =
+  process.env.NEXT_PUBLIC_INFURA_WALLET_PROVIDER;
+
+  

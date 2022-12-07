@@ -1,0 +1,325 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300,400;500;600;700&display=swap');
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 100%;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+profileImag {
+    width: 50px;
+    height: 50px;
+    background-color: aquamarine;
+}
+
+h1 {
+    @apply text-6xl;
+    line-height: 1.2;
+  }
+  h2 {
+    @apply text-5xl;
+    line-height: 1.1;
+  }
+  h3 {
+    @apply text-4xl;
+  }
+  h4 {
+    @apply text-3xl;
+  }
+  h5 {
+    @apply text-2xl;
+  }
+  h6 {
+    @apply text-xl;
+  }
+
+
+.nft__hero {
+  height: calc(100vh + 76px);
+  box-sizing: border-box;
+  background: linear-gradient(130deg, rgba(255,255,255,1) 0%, rgba(238,197,43,0.3) 100%);
+  clip-path: ellipse(135% 100% at 50% 0%);
+}
+
+.nft__select-box--current {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+.nft__select-box--current:focus + .nft__select-box--list {
+  opacity: 1;
+  animation-name: none;
+}
+.nft__select-box--current:focus + .nft__select-box--list .nft__select-box--option {
+  cursor: pointer;
+}
+.nft__select-box--current:focus .nft__select-box--icon {
+  transform: translateY(-50%) rotate(180deg);
+}
+.nft__select-box--icon {
+  transform: translateY(-50%);
+  transition: 0.2s ease;
+}
+.nft__select-box--input {
+  display: none !important;
+}
+.nft__select-box--input:checked + .nft__select-box--input-text {
+  display: block;
+}
+.nft__select-box--input-text {
+  display: none;
+}
+.nft__select-box--list {
+  opacity: 0;
+  animation-name: HideList;
+  animation-duration: 0.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: step-start;
+}
+.nft__select-box--option {
+  display: block;
+}
+@keyframes HideList {
+  from {
+    transform: scaleY(1);
+ }
+  to {
+    transform: scaleY(0);
+ }
+}
+
+.triggers a.active {
+  color: black;
+}
+
+.browsehappy {
+  text-align: center;
+  margin: 0;
+  background: #fff8e2;
+  color: #000;
+  padding: 0.5em 0;
+}
+
+.nft__hero {
+  background: -webkit-linear-gradient(320deg, white 0%, rgba(238, 197, 43, 0.3) 100%) !important;
+  background: linear-gradient(130deg, white 0%, rgba(238, 197, 43, 0.3) 100%) !important;
+  -webkit-clip-path: ellipse(135% 100% at 50% 0%);
+          clip-path: ellipse(135% 100% at 50% 0%);
+}
+
+.nft__modal {
+  background: rgba(255, 250, 228, 0.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.nft__taglist-results .os-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.nft__taglist-results .os-content::before {
+  display: none;
+}
+
+.nft__select-box--current {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.nft__select-box--current:focus + .nft__select-box--list {
+  opacity: 1;
+  -webkit-animation-name: none;
+          animation-name: none;
+}
+
+.nft__select-box--current:focus + .nft__select-box--list .nft__select-box--option {
+  cursor: pointer;
+}
+
+.nft__select-box--current:focus .nft__select-box--icon {
+  -webkit-transform: translateY(-50%) rotate(180deg);
+          transform: translateY(-50%) rotate(180deg);
+}
+
+.nft__select-box--icon {
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.nft__select-box--input {
+  display: none !important;
+}
+
+.nft__select-box--input:checked + .nft__select-box--input-text {
+  display: block;
+}
+
+.nft__select-box--input-text {
+  display: none;
+}
+
+.nft__select-box--list {
+  opacity: 0;
+  -webkit-animation-name: HideList;
+          animation-name: HideList;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: step-start;
+          animation-timing-function: step-start;
+}
+
+.nft__select-box--option {
+  display: block;
+}
+
+.nft__active-menu-link .active {
+  color: #202225;
+  font-weight: 600;
+}
+
+.nft__tablist [aria-selected='true'] {
+  border-color: #202225;
+  color: #202225;
+}
+
+.nft__tablist [aria-selected='true']:hover {
+  color: #202225;
+}
+
+.nft__tablist [aria-selected='false'] {
+  border-color: transparent;
+  color: #BCBCBC;
+}
+
+.nft__tablist [aria-selected='false']:hover {
+  border-color: transparent;
+  color: #202225;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay {
+  background: #F0CE14 !important;
+  border-color: #F0CE14 !important;
+}
+
+.flatpickr-day.inRange {
+  -webkit-box-shadow: -5px 0 0 #EFEFEF, 5px 0 0 #EFEFEF !important;
+  box-shadow: -5px 0 0 #EFEFEF, 5px 0 0 #EFEFEF !important;
+}
+
+.flatpickr-day.inRange,
+.flatpickr-day.prevMonthDay.inRange,
+.flatpickr-day.nextMonthDay.inRange,
+.flatpickr-day.today.inRange,
+.flatpickr-day.prevMonthDay.today.inRange,
+.flatpickr-day.nextMonthDay.today.inRange,
+.flatpickr-day:hover,
+.flatpickr-day.prevMonthDay:hover,
+.flatpickr-day.nextMonthDay:hover,
+.flatpickr-day:focus,
+.flatpickr-day.prevMonthDay:focus,
+.flatpickr-day.nextMonthDay:focus {
+  background: #EFEFEF !important;
+  border-color: #EFEFEF !important;
+}
+
+@-webkit-keyframes HideList {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}
+
+@keyframes HideList {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
+.text-nft_institutional.active {
+  --tw-text-opacity: 1;
+  color: rgb(240 206 20 / var(--tw-text-opacity));
+}
+[role=tooltip]>[data-popper-arrow]:after {
+  border-color: #e5e7eb;
+  border-style: solid;
+}
+[data-popover][role=tooltip][data-popper-placement^=bottom]>[data-popper-arrow]:after, [data-popover][role=tooltip][data-popper-placement^=bottom]>[data-popper-arrow]:before {
+  border-left-width: 1px;
+  border-top-width: 1px;
+}
+[data-popper-arrow]:after {
+  background: inherit;
+  height: 9px;
+  position: absolute;
+  width: 9px;
+}
+[data-popper-arrow]:after, [data-popper-arrow]:before {
+  content: "";
+  transform: rotate(45deg);
+  visibility: visible;
+}
+
