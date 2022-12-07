@@ -24,8 +24,8 @@ export default function Home() {
       console.log("sssss");
       
       let web3Modal = web3ModalSetup(); // get web3 modal object
-      console.log("walletConnectedwalletConnected",  await web3Modal.connect());
-      if(!web3Modal)
+      // console.log("walletConnectedwalletConnected",  await web3Modal.connect());
+      if(web3Modal)
       loadWeb3Modal(web3Modal);
     } catch (err) {
       console.log(err);
@@ -56,13 +56,23 @@ export default function Home() {
       const addr = await signer.getAddress();
       const { chainId } = await web3Provider.getNetwork();
 
-      const { data } = await axios.get(`${BACKEND_ENDPOINT}/get-message`, {
+      let { data } = await axios.get(`${BACKEND_ENDPOINT}/get-message`, {
         params:{address:addr,chainId:chainId} 
       });
-      console.log("data",data);
+      console.log("data",data.message.issuedAt);
       
-      var signature = await signer.signMessage(data)
-      alert(signature)
+      var signature = await signer.signMessage(data.message)
+      let res = await axios.post(`${BACKEND_ENDPOINT}/verify-signature`, {
+        nonce: data.nonce,
+        issuedAt: data.issuedAt,
+        statement: data.statement,
+        address:addr,chainId:chainId,
+        uri: data.uri,
+        signature:signature
+      });
+      setUserAddress(res.data.status==200?res.data.token:"")
+      console.log("token",res.data.token);
+      
       setUserAddress(addr.toString());
       setWalletConnected(true);
       setIsLoaded(true);
@@ -158,7 +168,7 @@ export default function Home() {
         <br/>
         <input
           type="text"
-        
+          value={userAddress}
           className="block p-4 w-full text-dark_mode text-sm font-medium placeholder:text-gray-300 placeholder:font-normal bg-gray-300/20 rounded-lg border-none focus:outline-none focus:ring-1 focus:ring-gray-300/60"
           autoComplete="off"
           readOnly
